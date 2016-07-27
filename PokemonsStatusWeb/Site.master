@@ -1,0 +1,60 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="DXWebApplication2.SiteMaster" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>hyyass</title>
+    <link href="~/Content/Site.css" rel="stylesheet" /> 
+</head>
+<body>
+    <form id="form1" runat="server">
+        <dx:ASPxPanel ID="HeaderPane" runat="server" FixedPosition="WindowTop" CssClass="headerPane" ClientInstanceName="headerPane" Collapsible="true">
+            <SettingsAdaptivity CollapseAtWindowInnerWidth="768" />
+            <Styles>
+                <ExpandedPanel CssClass="expanded"></ExpandedPanel>
+                <ExpandBar CssClass="bar"></ExpandBar>
+            </Styles>
+            <PanelCollection>
+                <dx:PanelContent runat="server" SupportsDisabledAttribute="True">
+                    <div class="content-wrapper">
+                        <h1 class="headerTitle">Pokemon Hack Query</h1>
+                        
+                    </div>
+                </dx:PanelContent>
+            </PanelCollection>
+            <ExpandBarTemplate>
+                <h1 class="headerTitle">hyyas pokenmon hack query</h1>
+            </ExpandBarTemplate>
+        </dx:ASPxPanel>
+
+        <script type="text/javascript">
+            function updateHeaderMenuOrientation(){
+                if (!window.headerMenu) return;
+                var orientation = headerPane.IsExpandable() ? 'Vertical' : 'Horizontal';
+                if(orientation !== headerMenu.GetOrientation()) 
+                    headerMenu.SetOrientation(orientation);
+            }
+        </script>
+
+        <dx:ASPxGlobalEvents runat="server">
+            <ClientSideEvents ControlsInitialized="updateHeaderMenuOrientation" BrowserWindowResized="updateHeaderMenuOrientation" />
+        </dx:ASPxGlobalEvents>
+
+        <div class="content-wrapper">
+            <div class="content">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    
+                </asp:ContentPlaceHolder>
+                
+            </div>
+            <div></div>
+            <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Content/donate.gif" OnClick="ImageButton1_Click1" />
+            <div class="footer">
+                <p>&copy; hyyas.com&nbsp; ´ó»ÒºÝhyy@NGA</p>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
